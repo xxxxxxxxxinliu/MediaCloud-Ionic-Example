@@ -45,7 +45,7 @@ angular.module('mc', ['ionic', 'mc.controllers', 'mc.services', 'mc.config'])
 
   .state('app.search', {
     cache: false,
-    url: '/search/:keyword',
+    url: '/search/custom',
     views: {
       'menuContent': {
         templateUrl: 'templates/search.html',

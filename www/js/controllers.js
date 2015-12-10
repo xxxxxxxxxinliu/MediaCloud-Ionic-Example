@@ -9,17 +9,25 @@ angular.module('mc.controllers', [])
   $scope.data = {};
   $scope.service = MediaCloud;
   $scope.data.sentenceCount = null;
-  MediaCloud.recentMentions($scope.search.keyword);
-  $scope.$watch('service.results', function(results){
-    if(results!=null){
-      console.log("watch got results = "+results.count);
-      $scope.data.sentenceCount = results.count;
-    } else {
-      console.log("watch go null");
-    }
-  });
-  console.log("Calling MC from ctrl");
 
+  $scope.runSearch = function (form){
+    console.log(form.searchkeyword);
+    console.log(form.searchkeyword.$viewValue);
+    console.log($scope.data);
+    console.log($scope.search.keyword);
+    $scope.$watch('service.results', function(results){
+      if(results!=null){
+        console.log("watch got results = "+results.count);
+       $scope.data.sentenceCount = results.count;
+       } else {
+        console.log("watch go null");
+      }
+    });   
+    MediaCloud.recentMentions($scope.search.keyword);
+  };
+
+
+  console.log("Calling MC from ctrl");
 })
 
 .controller('SearchCtrl', function($scope, $stateParams, MediaCloud){
