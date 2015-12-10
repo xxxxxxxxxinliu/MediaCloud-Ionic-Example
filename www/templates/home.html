@@ -1,0 +1,19 @@
+<ion-view view-title="Home">
+  <ion-content>
+    <h1>US mainstream media attention on: </h1>
+
+    <label class="item item-input">
+  	<span class="input-label"> Keyword</span>
+ 	<input type="text" name="searchkeyword" ng-model = "search.keyword" required>
+	</label>
+	<button ng-click="watch">
+    Search
+	</button>
+    <p ng-if="data.sentenceCount==null"><ion-spinner></ion-spinner></p>
+    <p ng-if="data.sentenceCount!=null">There are {{data.sentenceCount | number}} results.</p>
+<div>
+	<tt>search = {{search}}</tt>
+</div>
+
+</ion-content>
+</ion-view>
